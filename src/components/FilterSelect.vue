@@ -2,7 +2,7 @@
     <select :value="modelValue"
             :name="name"
             @change="handleChange"
-            class="w-64 px-4 py-2 border border-gray-300 rounded-lg shadow-sm focus:ring-blue-500 focus:border-blue-500 text-gray-700">
+            class="w-[200px] px-4 py-2 border border-gray-300 rounded-lg shadow-sm focus:ring-blue-500 focus:border-blue-500 text-gray-700">
             <option v-for="option in options" :key="option.id" :value="option.id">{{ option.label }}</option>
       </select>
 </template>

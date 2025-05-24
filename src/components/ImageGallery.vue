@@ -1,10 +1,29 @@
 <template>
-  <div class="filters">
-      <FilterSelect v-model="selectedSize" name="size" @change="fetchModels" :options="optionsSizes" />
-      <FilterSelect v-model="selectedPrice" name="price" @change="fetchModels" :options="optionsPrices" />
+  <div
+    class="flex flex-wrap justify-center gap-2 mb-6 sm:items-center"
+  >
+    <FilterSelect
+      v-model="selectedSize"
+      name="size"
+      @change="fetchModels"
+      :options="optionsSizes"
+      class="max-w-xs px-2 py-1"
+    />
+    <FilterSelect
+      v-model="selectedPrice"
+      name="price"
+      @change="fetchModels"
+      :options="optionsPrices"
+      class="max-w-xs px-2 py-1"
+    />
   </div>
-  <div class="post-container">
-    <ImageCard v-for="(model, index) in models" :key="index" :model="model" />
+
+  <div class="flex flex-wrap justify-center">
+    <ImageCard
+      v-for="(model, index) in models"
+      :key="index"
+      :model="model"
+    />
   </div>
 </template>
 
@@ -84,33 +103,3 @@
     fetchOptionsPrices();
   });
 </script>
-
-<style>
-  .post-container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-  }
-
-  .filters {
-      display: flex;
-      gap: 10px;
-      justify-content: center;
-  }
-
-  .filters > select {
-      flex: 1;
-      padding: 8px;
-      max-width: 250px;
-  }
-
-  @media (max-width: 600px) {
-      .filters {
-          flex-direction: column;
-          align-items: center;
-      }
-      .filters > select {
-        width: 100%;
-      }
-  }
-</style>
