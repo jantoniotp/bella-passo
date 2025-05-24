@@ -1,8 +1,17 @@
 <template>
-    <button class="view-btn">Ver Detalle</button>
+    <a
+      href=""
+      target="_blank"
+      rel="noopener"
+      class="inline-flex items-center px-4 py-2 rounded-lg text-white font-semibold"
+      :style="{ backgroundColor: redColor }"
+    >
+      Ver Detalle
+    </a>
 </template>
 
 <script lang="ts" setup>
+  const redColor = '#ff0000b8'
 </script>
 
 <style scoped>
