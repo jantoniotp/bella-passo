@@ -2,14 +2,14 @@
   <div
     class="flex flex-wrap justify-center gap-2 mb-6 sm:items-center"
   >
-    <FilterSelect
+    <Filters
       v-model="selectedSize"
       name="size"
       @change="fetchModels"
       :options="optionsSizes"
       class="max-w-xs px-2 py-1"
     />
-    <FilterSelect
+    <Filters
       v-model="selectedPrice"
       name="price"
       @change="fetchModels"
@@ -30,18 +30,26 @@
 <script lang="ts" setup>
   import { ref, onMounted, watch } from 'vue';
   import axios from "axios";
-  import ImageCard from './ImageCard.vue'
-  import FilterSelect from './FilterSelect.vue';
+  import ImageCard from '../components/ImageCard.vue'
+  import Filters from '../components/Filters.vue';
+
+  interface OptionType {
+  id: number;
+  label: string;
+}
 
   const models = ref([]);
   const selectedSize = ref('0');
   const selectedPrice = ref('0');
-  const optionsSizes = ref([]);
-  const optionsPrices = ref([]);
+  const optionsSizes = ref<OptionType[]>([]);
+  const optionsPrices = ref<OptionType[]>([]);
 
-  const fetchModels = async (event = null) => {
+  const fetchModels = async (event?: Event) => {
 
-    const selectName = event ? event.target.name : '';
+    let selectName = '';
+    if (event && event.target) {
+      selectName = (event.target as HTMLSelectElement).name;
+    }
 
     const path = selectName === 'size'
     ? `size/${selectedSize.value}`

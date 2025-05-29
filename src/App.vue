@@ -3,10 +3,10 @@
     <div class="flex items-center justify-center mt-5 mb-5">
       <img src="/images/logo.png" alt="logo">
     </div>
-    <ImageGallery />
+    <GalleryView />
   </div>
 </template>
 
 <script lang="ts" setup>
-import ImageGallery from './components/ImageGallery.vue';
+import GalleryView from './views/GalleryView.vue';
 </script>

@@ -9,15 +9,17 @@
 
 <script lang="ts" setup>
 defineProps<{
-    modelValue: String,
-    name: String,
-    change: String,
-    options: Object;
+    modelValue: string,
+    name: string,
+    options: {
+        id: number,
+        label: string
+    }[];
 }>();
 
 const emit = defineEmits<{
   (event: 'update:modelValue', value: string): void;
-  (event: 'change', event: Event): void;
+  (event: 'change', value: Event): void;
 }>();
 
 const handleChange = (event: Event) => {

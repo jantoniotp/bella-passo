@@ -20,16 +20,26 @@
     </p>
 
     <div class="flex items-center justify-center gap-2">
-      <ViewDetails />
+      <DetailButton />
       <ContactButton />
     </div>
   </div>
 </template>
   
   <script lang="ts" setup>
-    import ViewDetails from "./ViewDetails.vue";
     import ContactButton from "./ContactButton.vue";
-    defineProps({
-      model: Object
-    })
+    import DetailButton from "./DetailButton.vue";
+
+    interface ModelType {
+      images: string;
+      sizes: string;
+      models: {
+        name: string;
+        price: number;
+      };
+    }
+
+    defineProps<{
+      model: ModelType;
+    }>();
   </script>
