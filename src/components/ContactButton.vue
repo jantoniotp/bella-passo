@@ -16,8 +16,8 @@
     </a>
   </template>
   
-  <script setup>
-  const phoneNumber = '222441595'
-  const whatsAppLink = `https://wa.me/${phoneNumber}`
-  const whatsAppGreen = '#25D366'
+  <script lang="ts" setup>
+    const phoneNumber = '222441595'
+    const whatsAppLink = `https://wa.me/${phoneNumber}`
+    const whatsAppGreen = '#25D366'
   </script>
